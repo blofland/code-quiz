@@ -1,3 +1,5 @@
 alert("Click start to begin quiz!")
 
-addEventListener.
+#btn-1.addEventListener("click", function() {
+    alert("button clicked");
+  });
