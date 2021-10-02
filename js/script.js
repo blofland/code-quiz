@@ -1,5 +1,4 @@
-alert("Click start to begin quiz!")
-
-#btn-1.addEventListener("click", function() {
-    alert("button clicked");
-  });
+const question = document.querySelector('#question')
+const question = document.querySelector('#question')
+const question = document.querySelector('#question')
+const question = document.querySelector('#question')
