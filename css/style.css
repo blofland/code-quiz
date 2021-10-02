@@ -1,6 +1,12 @@
 :root {
     background: black;
 }
+
+.score {
+    font-size: large;
+    color: white;
+   align-items: flex-end;
+}
 .container {
     width: 100vw;
     height: 100vh;
@@ -43,3 +49,11 @@ h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:ghostwhite;
 }
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(rgb(238, 9, 169), green, blue, alpha);
+    transition: transform 150ms;
+    transform: scale(1.03);
+}
+
