@@ -26,6 +26,7 @@ var interval = setInterval(function () {
     }
 }, 1000);
 
+
 var REQIRED_TIME_IN_MS= 60000; 
 setTimeout(function(){
     alert("Time has ran out!");
@@ -35,42 +36,51 @@ setTimeout(function(){
 /* make questions */
 let questions = [
     {
-        question: 'What is 2 + 2?',
-        choice1: '2',
-        choice2: '4',
-        choice3: '21',
-        choice4: '17',
-        answer: 2,
+        question: 'Inside which HTML element do we put the JavaScript?',
+        choice1: '<js>',
+        choice2: '<javascript>',
+        choice3: '<scripting>',
+        choice4: '<script>',
+        answer: 4,
     },
     {
-        question: 'What is 2 + 2?',
-        choice1: '2',
-        choice2: '4',
-        choice3: '21',
-        choice4: '17',
-        answer: 2,
+        question: 'What is the correct syntax for referring to an external script called "xxx.js"?',
+        choice1: '<script src="xxx.js">',
+        choice2: '<script name="xxx.js">',
+        choice3: '<script href="xxx.js">',
+        choice4: '<script body="xxx.js">',
+        answer: 1,
     },
     {
-        question: 'What is 2 + 2?',
-        choice1: '2',
-        choice2: '4',
-        choice3: '21',
-        choice4: '17',
-        answer: 2,
+        question: 'How do you write "Hello World" in an alert box?',
+        choice1: 'alert("hello World")',
+        choice2: 'msgBox("hello World")',
+        choice3: 'msg("hello World")',
+        choice4: 'alertBox("hello World")',
+        answer: 1,
     },
     {
-        question: 'What is 2 + 2?',
-        choice1: '2',
-        choice2: '4',
-        choice3: '21',
-        choice4: '17',
-        answer: 2,
+        question: 'How do you call a function named "myFunction"?',
+        choice1: 'call myFunction()',
+        choice2: 'call function myFunction()',
+        choice3: 'myFunction()',
+        choice4: '(myFunction)',
+        answer: 3,
+    },
+
+    {
+        question: 'How can you add a comment in a JavaScript?',
+        choice1: '//',
+        choice2: '<!--',
+        choice3: '"*',
+        choice4: '$!',
+        answer: 1,
     },
 
 ]
 
 const SCORE_POINTS = 100
-const MAX_QUESTIONS = 4
+const MAX_QUESTIONS = 5
 
 startGame = () => {
     questionCounter = 0
