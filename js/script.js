@@ -1,6 +1,8 @@
-const question = document.querySelector('#question')
-const choices = document.querySelector('#question')
-const score = document.querySelector('#question')
+const question = document.querySelector('#question');
+const choices = Array.from(document.querySelectorAll('.choice-text'));
+const progressText = document.querySelector('#progressText')
+const score = document.querySelector('#score')
+const progressBarFull = document.querySelector('#progressBarFull')
 
 let currentQuestion = {}
 let acceptingAnswers = true
@@ -16,10 +18,38 @@ choice3: "nope",
 choice4: "nottoday",
 answer: 2,
     },
+    {question: "What's up",
+    choice1: "hdaey",
+    choice2: "hadfi",
+    choice3: "nopdae",
+    choice4: "nottdaoday",
+    answer: 3,
+        },
+        {question: "How do you succeed?",
+        choice1: "hey",
+        choice2: "hi",
+        choice3: "nope",
+        choice4: "nottoday",
+        answer: 4,
+            },
+            {question: "How do you succeed?",
+            choice1: "hey",
+            choice2: "hi",
+            choice3: "nope",
+            choice4: "nottoday",
+            answer: 2,
+                },
+                {question: "How do you succeed?",
+                choice1: "hey",
+                choice2: "hi",
+                choice3: "nope",
+                choice4: "nottoday",
+                answer: 2,
+                    },
 ]
 
 const SCORE_POINTS = 1
-const MAX_QUESTIONS = 5
+const MAX_QUESTIONS = 6
 
 startQuiz = () => {
     questionCounter = 0
@@ -48,5 +78,37 @@ getNewQuestion = () => {
         choice.innerText = currentQuestion['choice' + number]
     })
 
-    
+    availableQuestions.splice(questionsIndex, 1)
+
+    acceptingAnswers = true
+}
+
+choices.forEach(choice => {
+    choice.addEventListener('click', e => {
+        if(!acceptingAnswers) return
+
+        acceptingAnswers = false
+        const selectedChoice = e.target
+        const selectedAnswer = selectedChoice.dataset['number']
+
+        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 
+        'incorrect'
+
+        if(classToApply === 'correct') {
+            incrementScore(SCORE_POINTS)
+        }
+
+        selectedChoice.parentElement.classList.add(classToApply)
+
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply)
+            getNewQuestion()
+        })
+
+    })
+})
+
+incrementScore = num => {
+    score+=num
+    scoreText.innerText = score
 }

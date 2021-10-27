@@ -5,7 +5,7 @@
 .score {
     font-size: large;
     color: white;
-   align-items: flex-end;
+    align-items: flex-end;
 }
 .container {
     width: 100vw;
@@ -50,6 +50,12 @@ h1 {
     color:ghostwhite;
 }
 
+.correct {
+    background: linear-gradient(32deg, rgba(11,223, 36) 0%, rgb(41, 232, 111) 100%)
+}
+.incorrect {
+    background: linear-gradient(32deg, rgb(231, 2, 2) 0%, rgb(252, 6, 6) 100%)
+}
 .btn:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(rgb(238, 9, 169), green, blue, alpha);
@@ -57,3 +63,33 @@ h1 {
     transform: scale(1.03);
 }
 
+/* heads up display */
+
+#hud {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.hud-main-text {
+    text-align: center;
+}
+
+#progressBar {
+    width:20rem;
+    height:3rem;
+    border: .2rem solid rgb(238, 9, 169);
+    margin-top: 2rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#progressBarFull {
+    height:100%;
+    background: rgb(238, 9, 169);
+    width: 0%;
+}
