@@ -67,6 +67,13 @@ body {
     width: 0%;
 }
 
+/*timer */
+.timer {
+        font-size: 5.4rem;
+        color: #fff;
+        margin-bottom: 5rem;
+    }
+
 /* added media adjustment */
 @media screen and (max-width: 768px) {
     .choice-container {

@@ -12,17 +12,25 @@ let score = 0
 let questionCounter = 0
 let availableQuestions = []
 
-var count = 15;
-var interval = setInterval(function(){
-  document.getElementById('count').innerHTML=count;
-  count--;
-  if (count === 0){
-    clearInterval(interval);
-    document.getElementById('count').innerHTML='Done';
-    // or...
-    alert("You're out of time!");
-  }
+/* timer */
+
+var count = 60;
+var interval = setInterval(function () {
+    document.getElementById('count').innerHTML = count;
+    count--;
+    if (count === 0) {
+        clearInterval(interval);
+        document.getElementById('count').innerHTML = 'Done';
+        // or...
+        alert("You're out of time!");
+    }
 }, 1000);
+
+var REQIRED_TIME_IN_MS= 60000; 
+setTimeout(function(){
+    alert("Time has ran out!");
+    window.location.href= "ending.html";
+},REQIRED_TIME_IN_MS);
 
 /* make questions */
 let questions = [
@@ -58,11 +66,11 @@ let questions = [
         choice4: '17',
         answer: 2,
     },
-  
+
 ]
 
 const SCORE_POINTS = 100
-const MAX_QUESTIONS = 4 
+const MAX_QUESTIONS = 4
 
 startGame = () => {
     questionCounter = 0
@@ -74,7 +82,7 @@ startGame = () => {
 
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
         return window.location.assign('ending.html')
@@ -82,8 +90,8 @@ getNewQuestion = () => {
 
     questionCounter++
     progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
-    progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
-    
+    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`
+
     const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
     currentQuestion = availableQuestions[questionsIndex]
     question.innerText = currentQuestion.question
@@ -100,7 +108,7 @@ getNewQuestion = () => {
 
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
-        if(!acceptingAnswers) return
+        if (!acceptingAnswers) return
 
         acceptingAnswers = false
         const selectedChoice = e.target
@@ -108,7 +116,7 @@ choices.forEach(choice => {
 
         let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
 
-        if(classToApply === 'correct') {
+        if (classToApply === 'correct') {
             incrementScore(SCORE_POINTS)
         }
 
@@ -123,7 +131,7 @@ choices.forEach(choice => {
 })
 
 incrementScore = num => {
-    score +=num
+    score += num
     scoreText.innerText = score
 }
 
