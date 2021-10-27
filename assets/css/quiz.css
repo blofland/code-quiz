@@ -15,7 +15,7 @@
     align-items: center;
     max-width: 80rem;
     margin: 0 auto;
-    padding: 2rem;
+  
 }
 
 .flex-column {
@@ -38,9 +38,9 @@ h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.btn {
+.choice-container {
     display:flex;
-    margin-bottom: 10px;
+    margin-bottom: .8rem;
     width: 100%;
     background:deeppink;
     font-size: 3rem;
@@ -50,13 +50,14 @@ h1 {
     color:ghostwhite;
 }
 
+
 .correct {
     background: linear-gradient(32deg, rgba(11,223, 36) 0%, rgb(41, 232, 111) 100%)
 }
 .incorrect {
     background: linear-gradient(32deg, rgb(231, 2, 2) 0%, rgb(252, 6, 6) 100%)
 }
-.btn:hover {
+.choice-container:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(rgb(238, 9, 169), green, blue, alpha);
     transition: transform 150ms;
